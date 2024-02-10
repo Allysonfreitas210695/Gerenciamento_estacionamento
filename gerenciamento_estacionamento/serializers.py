@@ -5,19 +5,19 @@ from .models import Cliente, Veiculo, Estacionamento, Tarifa
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['id', 'saldo', 'nome', 'endereco', 'telefone']
+        fields = "__all__"
 
 class VeiculoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Veiculo
-        fields = ['id', 'cliente', 'placa', 'modelo', 'cor', 'ano']
+        fields = "__all__"
 
 class EstacionamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estacionamento
-        fields = ['id', 'veiculo', 'hora_entrada', 'hora_saida', 'valor_pago', 'observacoes', 'status', 'tarifas']
+        fields = "__all__"
 
 class TarifaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tarifa
-        fields = ['id', 'descricao', 'valor_hora', 'valor_diaria', 'criado_em', 'atualizado_em']
+        fields = "__all__"
