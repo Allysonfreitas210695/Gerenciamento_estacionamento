@@ -32,8 +32,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "drf_spectacular",
+    'corsheaders',
     "gerenciamento_estacionamento",
-    'corsheaders'
+    'profiles'
 ]
 
 MIDDLEWARE = [

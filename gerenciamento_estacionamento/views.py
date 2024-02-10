@@ -1,6 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from .models import Cliente, Veiculo, Estacionamento, Tarifa
 from .serializers import ClienteSerializer, VeiculoSerializer, EstacionamentoSerializer, TarifaSerializer
 
