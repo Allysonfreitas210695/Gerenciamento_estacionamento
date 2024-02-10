@@ -1,14 +1,16 @@
 from rest_framework import viewsets, status
 from rest_framework.permissions import AllowAny
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from .models import Profile
 from .serializers import ProfileSerializer
-from rest_framework.response import Response
 
 class ProfileViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
+    @action(detail=True, methods=['post'])
     def create(self, request, *args, **kwargs):
         try:
             return super().create(request, *args, **kwargs)
