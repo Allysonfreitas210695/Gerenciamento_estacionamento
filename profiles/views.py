@@ -10,7 +10,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
-    @action(detail=True, methods=['post'])
     def create(self, request, *args, **kwargs):
         try:
             return super().create(request, *args, **kwargs)
