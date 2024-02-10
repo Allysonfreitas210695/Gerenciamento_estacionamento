@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Cliente(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nome = models.CharField(max_length=100)
     saldo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     endereco = models.CharField(max_length=255)
@@ -18,6 +20,7 @@ class Cliente(models.Model):
         return self.nome
 
 class Veiculo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     placa = models.CharField(max_length=10)
     modelo = models.CharField(max_length=50)
@@ -36,6 +39,7 @@ class Veiculo(models.Model):
         return self.modelo
 
 class Tarifa(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     descricao = models.CharField(max_length=100, blank=True)
     valor_hora = models.DecimalField(max_digits=10, decimal_places=2)
     valor_diaria = models.DecimalField(max_digits=10, decimal_places=2)
@@ -52,6 +56,7 @@ class Tarifa(models.Model):
         return self.descricao
 
 class Estacionamento(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     tarifas = models.ManyToManyField(Tarifa)
     descricao = models.CharField(max_length=50, blank=True)
