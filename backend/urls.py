@@ -32,10 +32,16 @@ urlpatterns = [
 ]
 
 # Adiciona rotas específicas para cada ViewSet com barras finais opcionais
+# Adiciona rotas específicas para cada ViewSet com barras finais opcionais
 urlpatterns += [
     re_path(r'^api/Clientes/(?P<pk>\d+)/?$', ClienteViewSet.as_view({'get': 'retrieve', 'put': 'update', 'post': 'create', 'delete': 'destroy'}), name='clientes-detail'),
+    re_path(r'^api/Clientes/?$', ClienteViewSet.as_view({'get': 'list', 'post': 'create'}), name='clientes-list'),
     re_path(r'^api/Veiculos/(?P<pk>\d+)/?$', VeiculoViewSet.as_view({'get': 'retrieve', 'put': 'update', 'post': 'create', 'delete': 'destroy'}), name='veiculos-detail'),
+    re_path(r'^api/Veiculos/?$', VeiculoViewSet.as_view({'get': 'list', 'post': 'create'}), name='veiculos-list'),
     re_path(r'^api/Estacionamentos/(?P<pk>\d+)/?$', EstacionamentoViewSet.as_view({'get': 'retrieve', 'put': 'update', 'post': 'create', 'delete': 'destroy'}), name='estacionamentos-detail'),
+    re_path(r'^api/Estacionamentos/?$', EstacionamentoViewSet.as_view({'get': 'list', 'post': 'create'}), name='estacionamentos-list'),
     re_path(r'^api/Tarifas/(?P<pk>\d+)/?$', TarifaViewSet.as_view({'get': 'retrieve', 'put': 'update', 'post': 'create', 'delete': 'destroy'}), name='tarifas-detail'),
+    re_path(r'^api/Tarifas/?$', TarifaViewSet.as_view({'get': 'list', 'post': 'create'}), name='tarifas-list'),
     re_path(r'^api/Profiles/(?P<pk>\d+)/?$', ProfileViewSet.as_view({'get': 'retrieve', 'put': 'update', 'post': 'create', 'delete': 'destroy'}), name='profiles-detail'),
+    re_path(r'^api/Profiles/?$', ProfileViewSet.as_view({'get': 'list', 'post': 'create'}), name='profiles-list'),
 ]
