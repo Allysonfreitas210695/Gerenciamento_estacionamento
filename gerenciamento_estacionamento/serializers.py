@@ -9,13 +9,13 @@ class ClienteSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().update(instance, validated_data)
@@ -26,13 +26,13 @@ class VeiculoSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().update(instance, validated_data)
@@ -43,13 +43,13 @@ class TarifaSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().update(instance, validated_data) 
@@ -61,13 +61,13 @@ class EstacionamentoSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        user = self.context['request']._cached_user
+        user = self.context['request'].user
         if user and user.is_authenticated:
             validated_data['user'] = user
         return super().update(instance, validated_data)
